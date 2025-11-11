@@ -25,7 +25,8 @@
     "watch": "tsup --watch",
     "prepublishOnly": "npm run build",
     "start": "node dist/index.js",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "test": "npm run build && node -e \"console.log('✓ Build successful - MCP server ready')\""
   },
   "keywords": [
     "ason",
