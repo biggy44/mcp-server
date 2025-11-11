@@ -1,0 +1,65 @@
+{
+  "name": "@ason-format/mcp-server",
+  "version": "1.0.0",
+  "description": "Model Context Protocol server for ASON compression/decompression. Compatible with Claude Desktop, Cline, Continue, and other MCP clients.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "ason-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "watch": "tsup --watch",
+    "prepublishOnly": "npm run build",
+    "start": "node dist/index.js",
+    "dev": "tsup --watch"
+  },
+  "keywords": [
+    "ason",
+    "mcp",
+    "model-context-protocol",
+    "llm",
+    "compression",
+    "json",
+    "claude",
+    "cline",
+    "continue",
+    "ai",
+    "tokens"
+  ],
+  "author": "ASON Project Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ason-format/mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ason-format/mcp-server/issues"
+  },
+  "homepage": "https://github.com/ason-format/mcp-server#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.21.1",
+    "@ason-format/ason": "^1.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  }
+}

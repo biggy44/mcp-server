@@ -1,0 +1,73 @@
+name: Publish to NPM
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package
+        run: npm run build
+
+      - name: Publish to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          body: |
+            ## @ason-format/mcp-server ${{ github.ref_name }}
+
+            See [CHANGELOG.md](https://github.com/ason-format/mcp-server/blob/main/CHANGELOG.md) for details.
+
+            ### Installation
+
+            ```bash
+            npm install -g @ason-format/mcp-server@${{ steps.version.outputs.VERSION }}
+            ```
+
+            ### Usage
+
+            Add to Claude Desktop config:
+
+            ```json
+            {
+              "mcpServers": {
+                "ason": {
+                  "command": "ason-mcp"
+                }
+              }
+            }
+            ```
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Success notification
+        run: |
+          echo "✓ Published @ason-format/mcp-server@${{ steps.version.outputs.VERSION }}"
+          echo "✓ GitHub Release created"
