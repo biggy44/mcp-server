@@ -5,8 +5,6 @@ All notable changes to the ASON MCP Server will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
 ## [1.0.0] - 2025-01-11
 
 ### Added
@@ -16,7 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `decompress_ason` - Decompress ASON back to JSON (lossless round-trip)
   - `get_compression_stats` - Analyze compression metrics (tokens, bytes, reduction %)
   - `configure_compressor` - Update global compressor settings
-- **TypeScript Implementation** - Full TypeScript with type definitions
+- **TypeScript Implementation** - Full TypeScript with type definitions and Zod validation
+- **Modern MCP SDK** - Built with `McpServer` and `registerTool()` API (latest 2025 standards)
 - **Stdio Transport** - Seamless IPC communication with MCP clients
 - **Global Installation** - Installable via `npm install -g @ason-format/mcp-server`
 - **Binary Command** - `ason-mcp` command for easy execution
@@ -42,4 +41,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Node.js >= 18.0.0
 
 [Unreleased]: https://github.com/ason-format/mcp-server/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/ason-format/mcp-server/releases/tag/v1.0.0
