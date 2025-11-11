@@ -5,6 +5,9 @@
 
 set -e
 
+# Change to project root directory
+cd "$(dirname "$0")/.."
+
 # Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -67,6 +70,18 @@ echo ""
 echo -e "${BLUE}Building package...${NC}"
 npm run build
 
+# Run tests
+echo ""
+echo -e "${BLUE}Running tests...${NC}"
+npm test || {
+  echo -e "${RED}Tests failed!${NC}"
+  read -p "Continue anyway? (y/N): " -n 1 -r
+  echo
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    exit 1
+  fi
+}
+
 # Commit and tag
 git add package.json CHANGELOG.md package-lock.json 2>/dev/null || true
 git commit -m "Release v${NEW_VERSION}"
@@ -94,7 +109,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo -e "Tag: ${YELLOW}${TAG_NAME}${NC}"
   echo ""
   echo -e "${BLUE}Next steps:${NC}"
-  echo "  → GitHub Actions will publish to NPM"
-  echo "  → GitHub Release will be created automatically"
+  echo "  → Create a GitHub Release from tag ${TAG_NAME}"
+  echo "  → GitHub Actions will publish to NPM automatically"
   echo ""
 fi
