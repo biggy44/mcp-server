@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2025-01-12
+
+### Changed
+- **Improved JSON Output Formatting** - `decompress_ason` now returns clean JSON output without markdown wrapper for better LLM integration
+- **Core Library Update** - Updated to @ason-format/ason@^1.1.3 with critical bug fix for keys containing dots
+
+### Fixed
+- Fixed display issue in Zed Editor where decompress output wasn't showing in model response
+
 ## [1.1.0] - 2025-01-11
 
 ### Changed

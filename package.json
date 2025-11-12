@@ -1,6 +1,6 @@
 {
   "name": "@ason-format/mcp-server",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Model Context Protocol server for ASON compression/decompression. Compatible with Claude Desktop, Cline, Continue, and other MCP clients.",
   "type": "module",
   "main": "./dist/index.js",
@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.21.1",
-    "@ason-format/ason": "^1.1.2"
+    "@ason-format/ason": "^1.1.3"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
