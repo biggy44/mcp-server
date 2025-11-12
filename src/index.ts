@@ -56,7 +56,7 @@ class AsonMCPServer {
           content: [
             {
               type: 'text',
-              text: `ASON Output:\n\n${result.ason}\n\nConfiguration used:\n${JSON.stringify(result.config, null, 2)}`
+              text: result.ason
             }
           ]
         };
@@ -78,7 +78,7 @@ class AsonMCPServer {
           content: [
             {
               type: 'text',
-              text: `JSON Output:\n\n${JSON.stringify(result.json, null, 2)}`
+              text: JSON.stringify(result.json, null, 2)
             }
           ]
         };
@@ -109,14 +109,10 @@ class AsonMCPServer {
           content: [
             {
               type: 'text',
-              text: `Compression Statistics:\n\n` +
-                `Original Tokens: ${stats.original_tokens}\n` +
-                `Compressed Tokens: ${stats.compressed_tokens}\n` +
-                `Reduction: ${stats.reduction_percent.toFixed(2)}%\n\n` +
-                `Original Size: ${stats.original_size} bytes\n` +
-                `Compressed Size: ${stats.compressed_size} bytes\n` +
-                `Savings: ${stats.savings_bytes} bytes\n\n` +
-                `Configuration:\n${JSON.stringify(stats.config, null, 2)}`
+              text: `📊 **Compression Statistics**\n\n` +
+                `**Tokens**: ${stats.original_tokens} → ${stats.compressed_tokens} (${stats.reduction_percent.toFixed(1)}% reduction)\n` +
+                `**Size**: ${stats.original_size} → ${stats.compressed_size} bytes (saved ${stats.savings_bytes} bytes)\n\n` +
+                `*Config: indent=${stats.config.indent}, delimiter="${stats.config.delimiter}", refs=${stats.config.useReferences}, dict=${stats.config.useDictionary}*`
             }
           ]
         };
@@ -143,7 +139,7 @@ class AsonMCPServer {
           content: [
             {
               type: 'text',
-              text: `Global configuration updated:\n\n${JSON.stringify(globalConfig, null, 2)}`
+              text: `✓ Global configuration updated:\n\n**indent**: ${globalConfig.indent}\n**delimiter**: "${globalConfig.delimiter}"\n**useReferences**: ${globalConfig.useReferences}\n**useDictionary**: ${globalConfig.useDictionary}`
             }
           ]
         };
