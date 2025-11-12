@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-01-11
+
 ### Changed
 - **Tool Outputs Simplified** - `compress_json` now returns only the raw ASON output without additional formatting
 - **Tool Outputs Simplified** - `decompress_ason` now returns only the raw JSON output without additional formatting
@@ -55,5 +57,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Requirements
 - Node.js >= 18.0.0
 
-[Unreleased]: https://github.com/ason-format/mcp-server/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/ason-format/mcp-server/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/ason-format/mcp-server/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/ason-format/mcp-server/releases/tag/v1.0.0
