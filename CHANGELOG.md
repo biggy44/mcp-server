@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.3] - 2025-11-13
+
+### Changed
+- **CI/CD - Automated Publishing with Provenance**
+  - Updated `/.github/workflows/npm-publish.yml` with npm provenance support
+  - Added `--provenance` flag to npm publish command
+  - Added `permissions.id-token: write` for cryptographic signing
+  - Package now displays verified checkmark ✓ on npm
+  - Automated GitHub release creation with `changelogithub`
+  - Supports both manual releases and git tag triggers (`v*`)
+  - Node.js 20.x (updated from 18.x)
+  - Full transparency log and build attestation
+
 ## [1.1.2] - 2025-01-12
 
 ### Changed
