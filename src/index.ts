@@ -24,8 +24,10 @@ class AsonMCPServer {
 
   constructor() {
     this.server = new McpServer({
-      name: "ason-mcp-server",
-      version: "1.0.0",
+      name: "ASON Compression",
+      version: "1.1.2",
+      description:
+        "JSON token optimizer for LLMs - Reduces token count by 20-60% with lossless compression",
     });
 
     this.setupTools();

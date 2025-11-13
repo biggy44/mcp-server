@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.2] - 2025-01-12
+
+### Changed
+- **Improved Server Display Name** - Changed server name from "ason-mcp-server" to "ASON Compression"
+- **Added Server Description** - "JSON token optimizer for LLMs - Reduces token count by 20-60% with lossless compression"
+- **Better UI Integration** - More descriptive name appears in VS Code MCP Servers panel and other MCP clients
+
 ## [1.1.1] - 2025-01-12
 
 ### Changed
