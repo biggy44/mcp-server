@@ -26,9 +26,13 @@ export function getCompressionStats(input: GetStatsInput): CompressionStats & { 
     savings_bytes: stats.original_size - stats.compressed_size,
     config: {
       indent: config.indent ?? 1,
-      delimiter: config.delimiter ?? ',',
+      delimiter: config.delimiter ?? '|',
       useReferences: config.useReferences ?? true,
-      useDictionary: config.useDictionary ?? true
+      useSections: config.useSections ?? true,
+      useTabular: config.useTabular ?? true,
+      minFieldsForSection: config.minFieldsForSection ?? 3,
+      minRowsForTabular: config.minRowsForTabular ?? 2,
+      minReferenceOccurrences: config.minReferenceOccurrences ?? 2
     }
   };
 }

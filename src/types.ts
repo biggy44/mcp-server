@@ -5,7 +5,11 @@ export interface CompressorConfig {
   indent?: number;
   delimiter?: string;
   useReferences?: boolean;
-  useDictionary?: boolean;
+  useSections?: boolean;
+  useTabular?: boolean;
+  minFieldsForSection?: number;
+  minRowsForTabular?: number;
+  minReferenceOccurrences?: number;
 }
 
 /**
