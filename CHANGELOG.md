@@ -7,6 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0-preview] - 2025-01-14
+
+### Changed
+- **BREAKING: ASON 2.0 Support** - Updated to support ASON 2.0 format
+- **Configuration Options Updated**:
+  - ❌ Removed `useDictionary` (no longer exists in ASON 2.0)
+  - ✅ Added `useSections` - Enable `@section` organization for objects (default: true)
+  - ✅ Added `useTabular` - Enable `key:[N]{fields}` tabular arrays (default: true)
+  - ✅ Added `minFieldsForSection` - Min fields to create @section (default: 3)
+  - ✅ Added `minRowsForTabular` - Min rows for tabular format (default: 2)
+  - ✅ Added `minReferenceOccurrences` - Min occurrences for $var reference (default: 2)
+  - Changed default `delimiter` from `","` to `"|"` (pipe is more token-efficient)
+- **Syntax Updates**:
+  - Arrays now use `key:[N]{fields}` instead of `key:[N]@fields`
+  - Tabular data uses pipe delimiter `|` by default instead of comma `,`
+  - References now use `$var` semantic names (already supported)
+  - Sections use `@section` for objects (already supported)
+- **Updated Documentation**:
+  - All examples in README.md updated to ASON 2.0 syntax
+  - Tool descriptions updated to reflect new format
+
+### Dependencies
+- Updated `@ason-format/ason` to `^2.0.0-preview` (from `^1.1.3`)
+
+### Migration Notes
+- If you have existing MCP server configurations, update:
+  - `useDictionary: true` → Remove (or replace with `useSections: true, useTabular: true`)
+  - `delimiter: ","` → `delimiter: "|"` (recommended)
+- ASON output format has changed - see ASON 2.0 documentation
+
 ## [1.1.3] - 2025-11-13
 
 ### Changed

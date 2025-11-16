@@ -73,27 +73,29 @@ Compress JSON data to ASON format.
   "json": {"users": [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]},
   "config": {
     "indent": 1,
-    "delimiter": ",",
+    "delimiter": "|",
     "useReferences": true,
-    "useDictionary": true
+    "useSections": true,
+    "useTabular": true
   }
 }
 ```
 
 **Output:**
 ```
-ASON Output:
+ASON 2.0 Output:
 
-users:[2]@id,name
-1,Alice
-2,Bob
+users:[2]{id,name}
+1|Alice
+2|Bob
 
 Configuration used:
 {
   "indent": 1,
-  "delimiter": ",",
+  "delimiter": "|",
   "useReferences": true,
-  "useDictionary": true
+  "useSections": true,
+  "useTabular": true
 }
 ```
 
@@ -104,7 +106,7 @@ Decompress ASON back to JSON.
 **Input:**
 ```json
 {
-  "ason": "users:[2]@id,name\n1,Alice\n2,Bob"
+  "ason": "users:[2]{id,name}\n1|Alice\n2|Bob"
 }
 ```
 
@@ -128,7 +130,7 @@ Analyze compression statistics.
   "json": {"users": [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]},
   "config": {
     "indent": 1,
-    "delimiter": ","
+    "delimiter": "|"
   }
 }
 ```
@@ -148,9 +150,10 @@ Savings: 37 bytes
 Configuration:
 {
   "indent": 1,
-  "delimiter": ",",
+  "delimiter": "|",
   "useReferences": true,
-  "useDictionary": true
+  "useSections": true,
+  "useTabular": true
 }
 ```
 
@@ -163,7 +166,7 @@ Update global compression settings.
 {
   "config": {
     "indent": 2,
-    "delimiter": "|",
+    "delimiter": ",",
     "useReferences": false
   }
 }
@@ -175,9 +178,10 @@ Global configuration updated:
 
 {
   "indent": 2,
-  "delimiter": "|",
+  "delimiter": ",",
   "useReferences": false,
-  "useDictionary": true
+  "useSections": true,
+  "useTabular": true
 }
 ```
 
@@ -186,9 +190,13 @@ Global configuration updated:
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `indent` | number | `1` | Indentation level for nested structures |
-| `delimiter` | string | `","` | Field delimiter for uniform arrays |
-| `useReferences` | boolean | `true` | Enable object reference aliasing (`&obj0`) |
-| `useDictionary` | boolean | `true` | Enable inline-first value dictionary (`value #0`) |
+| `delimiter` | string | `"|"` | Field delimiter for tabular arrays (pipe, comma, or tab) |
+| `useReferences` | boolean | `true` | Enable `$var` reference deduplication |
+| `useSections` | boolean | `true` | Enable `@section` organization for objects |
+| `useTabular` | boolean | `true` | Enable `[N]{fields}` tabular format for arrays |
+| `minFieldsForSection` | number | `3` | Minimum fields to create a `@section` |
+| `minRowsForTabular` | number | `2` | Minimum rows for tabular array format |
+| `minReferenceOccurrences` | number | `2` | Minimum occurrences to create a `$var` reference |
 
 ## Development
 
@@ -218,9 +226,9 @@ Claude: I'll use the compress_json tool to compress this JSON.
 [Uses MCP tool compress_json]
 
 Result:
-products:[2]@id,name,price
-1,Laptop,999
-2,Mouse,25
+products:[2]{id,name,price}
+1|Laptop|999
+2|Mouse|25
 
 This compressed version uses 45% fewer tokens!
 ```
@@ -250,11 +258,17 @@ To release a new version:
 - ✅ **Continue** (VS Code extension)
 - ✅ **Any MCP client** with stdio transport
 
-## 📚 What is ASON?
+## 📚 What is ASON 2.0?
 
-ASON (Aliased Serialization Object Notation) is a token-optimized JSON compression format designed for LLMs. It reduces token usage by 20-60% while maintaining 100% lossless round-trip fidelity.
+ASON (Aliased Serialization Object Notation) 2.0 is a token-optimized JSON compression format designed for LLMs. It reduces token usage by 20-60% while maintaining 100% lossless round-trip fidelity.
 
-**Learn more**: [github.com/ason-format/ason](https://github.com/ason-format/ason)
+**Key features:**
+- **Sections** (`@section`) - Organize related objects
+- **Tabular Arrays** (`key:[N]{fields}`) - CSV-like format for uniform arrays
+- **References** (`$var`) - Deduplicate repeated values
+- **Pipe Delimiter** (`|`) - More token-efficient than commas
+
+**Learn more**: [ason-format.github.io/ason](https://ason-format.github.io/ason/)
 
 ## 📖 Documentation
 

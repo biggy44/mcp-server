@@ -17,9 +17,13 @@ export function compressJson(input: CompressJsonInput): { ason: string; config: 
     ason,
     config: {
       indent: config.indent ?? 1,
-      delimiter: config.delimiter ?? ',',
+      delimiter: config.delimiter ?? '|',
       useReferences: config.useReferences ?? true,
-      useDictionary: config.useDictionary ?? true
+      useSections: config.useSections ?? true,
+      useTabular: config.useTabular ?? true,
+      minFieldsForSection: config.minFieldsForSection ?? 3,
+      minRowsForTabular: config.minRowsForTabular ?? 2,
+      minReferenceOccurrences: config.minReferenceOccurrences ?? 2
     }
   };
 }
